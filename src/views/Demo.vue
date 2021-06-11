@@ -1,10 +1,18 @@
 <template>
-  path:
-  <el-input v-model="path"></el-input>
-  <br />keyName:
-  <el-input v-model="keyName"></el-input>
-  <br />num:
-  <el-input v-model="num"></el-input>
+  <div class="search-item">
+    path:
+    <el-input v-model="path"></el-input>
+  </div>
+  <div class="search-item">
+    keyName:
+    <el-input v-model="keyName"></el-input>
+  </div>
+  <div class="search-item">
+    num:
+    <el-input v-model="num"></el-input>
+  </div>
+
+  <br />
   <br />
   <div class="list">
     <div class="item" v-for="(item,index) in list" :key="item+index">
@@ -14,7 +22,6 @@
   </div>
 
   <div class="block">
-    <span class="demonstration">大于 7 页时的效果</span>
     <el-pagination @current-page="changePage" layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
@@ -50,11 +57,26 @@ export default {
       path,
       keyName,
       num,
-      list
+      list,
+      changePage
     };
   }
 };
 </script>
 
-<style>
+<style lang="less">
+.search-item{
+  margin: 5px;
+  text-align: left;
+  margin-left: 10%;
+}
+.el-input {
+  width: 180px;
+}
+.list{
+  text-align: left;
+  .item{
+    margin: 20px 10px;
+  }
+}
 </style>
